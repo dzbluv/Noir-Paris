@@ -32,14 +32,14 @@
   color: #f5f3ef !important;
 }
 
-/* Custom Cursor Rules (Matching user's bespoke design) */
+/* Custom Cursor Rules (Matching user's bespoke design at 50% compact scale) */
 @media (pointer: fine) and (hover: hover) {
   html, 
   body {
-    cursor: url('/cursors/default.svg') 4 3, auto !important;
+    cursor: url('/cursors/default.svg') 2 1, auto !important;
   }
 
-  /* Interactive Elements: Hand pointer with white fill and black outline (Image 2) */
+  /* Interactive Elements: Hand pointer with white fill, black outline & white halo (Image 2) */
   a, 
   button, 
   [role="button"], 
@@ -54,8 +54,9 @@
   .arrow,
   .strip-nav button,
   .modal-close-btn,
-  .lightbox-close {
-    cursor: url('/cursors/pointer.svg') 12 2, pointer !important;
+  .lightbox-close,
+  .plate {
+    cursor: url('/cursors/pointer.svg') 6 1, pointer !important;
   }
 
   /* Text Elements & Fields: Serif I-beam with white border (Image 3) */
@@ -63,9 +64,12 @@
   input[type="email"], 
   input[type="tel"], 
   input[type="date"], 
+  input[type="search"],
+  input[type="number"],
   textarea,
-  p, span, h1, h2, h3, h4, h5, h6, blockquote, li, label {
-    cursor: url('/cursors/text.svg') 13 16, text;
+  [contenteditable="true"],
+  p, blockquote {
+    cursor: url('/cursors/text.svg') 6 9, text;
   }
 }
 
