@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" fill="none">
+  <defs>
+    <filter id="beamShadow" x="-30%" y="-30%" width="170%" height="170%">
+      <feDropShadow dx="1" dy="1.6" stdDeviation="1.5" flood-color="rgba(0,0,0,0.45)"/>
+    </filter>
+  </defs>
+  <!-- Outer White Halo / Outline -->
+  <path d="M 6 3.5 C 9 3.5 10 5.5 12 5.5 L 12 13.5 C 10.5 14.5 10.5 16.5 12 17.5 L 12 25.5 C 10 25.5 9 27.5 6 27.5 L 20 27.5 C 17 27.5 16 25.5 14 25.5 L 14 17.5 C 15.5 16.5 15.5 14.5 14 13.5 L 14 5.5 C 16 5.5 17 3.5 20 3.5 Z"
+        fill="#0a0a0c"
+        stroke="#ffffff"
+        stroke-width="2.5"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        filter="url(#beamShadow)"/>
+</svg>

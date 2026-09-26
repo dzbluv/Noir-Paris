@@ -32,18 +32,43 @@
   color: #f5f3ef !important;
 }
 
-/* Custom Cursor Rules (Desktop fine pointer) */
+/* Custom Cursor Rules (Matching user's bespoke design) */
 @media (pointer: fine) and (hover: hover) {
-  body, 
+  html, 
+  body {
+    cursor: url('/cursors/default.svg') 4 3, auto !important;
+  }
+
+  /* Interactive Elements: Hand pointer with white fill and black outline (Image 2) */
   a, 
   button, 
   [role="button"], 
   input[type="submit"], 
   input[type="button"],
-  .clickable {
-    cursor: none !important;
+  select,
+  summary,
+  .clickable,
+  .interactive,
+  [data-cursor-hover],
+  .reserve,
+  .arrow,
+  .strip-nav button,
+  .modal-close-btn,
+  .lightbox-close {
+    cursor: url('/cursors/pointer.svg') 12 2, pointer !important;
+  }
+
+  /* Text Elements & Fields: Serif I-beam with white border (Image 3) */
+  input[type="text"], 
+  input[type="email"], 
+  input[type="tel"], 
+  input[type="date"], 
+  textarea,
+  p, span, h1, h2, h3, h4, h5, h6, blockquote, li, label {
+    cursor: url('/cursors/text.svg') 13 16, text;
   }
 }
+
 
 .bodoni_moda_5999d878-module__6leDSa__className{font-family:Bodoni Moda,Bodoni Moda Fallback}.bodoni_moda_5999d878-module__6leDSa__variable{--font-bodoni:"Bodoni Moda", "Bodoni Moda Fallback"}
 .hanken_grotesk_deecbd78-module__mM3oOG__className{font-family:Hanken Grotesk,Hanken Grotesk Fallback;font-style:normal}.hanken_grotesk_deecbd78-module__mM3oOG__variable{--font-hanken:"Hanken Grotesk", "Hanken Grotesk Fallback"}

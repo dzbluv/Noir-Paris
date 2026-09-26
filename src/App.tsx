@@ -15,7 +15,6 @@ import { MenuPage } from './pages/Menu';
 import { AboutPage } from './pages/About';
 import { ReservationPage } from './pages/Reservation';
 import { ReservationModal } from './components/ReservationModal';
-import { CustomCursor } from './components/layout/CustomCursor';
 
 export default function App() {
   const [reservationOpen, setReservationOpen] = useState(false);
@@ -77,7 +76,6 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <CustomCursor />
       <CurtainTransitionProvider>
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--slate)' }}>
           <Navbar onOpenReservation={openReservation} />
