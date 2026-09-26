@@ -74,6 +74,69 @@ export default function App() {
     };
   }, []);
 
+  // Adaptive Text Selection Highlight:
+  // Detects if the selected text or its container has a copper/terracotta color
+  // and dynamically toggles .selection-copper-active to use champagne gold highlight
+  useEffect(() => {
+    const parseRgb = (str: string): [number, number, number] | null => {
+      const m = str.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+      return m ? [parseInt(m[1], 10), parseInt(m[2], 10), parseInt(m[3], 10)] : null;
+    };
+
+    const isCopperLike = (str: string): boolean => {
+      const rgb = parseRgb(str);
+      if (!rgb) return false;
+      const [r, g, b] = rgb;
+      const dr = r - 166;
+      const dg = g - 90;
+      const db = b - 68;
+      const dist = Math.sqrt(dr * dr + dg * dg + db * db);
+      const isTerracotta = r > g + 25 && g >= b - 15 && r > 120 && r < 245 && b < 120;
+      return dist < 65 || isTerracotta;
+    };
+
+    const handleSelectionChange = () => {
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !sel.rangeCount) {
+        document.documentElement.classList.remove('selection-copper-active');
+        return;
+      }
+
+      const range = sel.getRangeAt(0);
+      let node: Node | null = range.commonAncestorContainer;
+      if (node.nodeType === Node.TEXT_NODE) {
+        node = node.parentElement;
+      }
+
+      let isCopper = false;
+      let curr: HTMLElement | null = node as HTMLElement;
+      let depth = 0;
+      while (curr && depth < 4) {
+        if (curr.nodeType === Node.ELEMENT_NODE) {
+          const style = window.getComputedStyle(curr);
+          if (isCopperLike(style.color) || isCopperLike(style.backgroundColor)) {
+            isCopper = true;
+            break;
+          }
+        }
+        curr = curr.parentElement;
+        depth++;
+      }
+
+      if (isCopper) {
+        document.documentElement.classList.add('selection-copper-active');
+      } else {
+        document.documentElement.classList.remove('selection-copper-active');
+      }
+    };
+
+    document.addEventListener('selectionchange', handleSelectionChange);
+    return () => {
+      document.removeEventListener('selectionchange', handleSelectionChange);
+      document.documentElement.classList.remove('selection-copper-active');
+    };
+  }, []);
+
   return (
     <BrowserRouter>
       <CurtainTransitionProvider>
