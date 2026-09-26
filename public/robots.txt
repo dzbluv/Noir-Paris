@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://noir-paris-rho.vercel.app/sitemap.xml
