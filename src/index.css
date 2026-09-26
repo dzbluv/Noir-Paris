@@ -20,10 +20,7 @@
 }
 
 /* ==========================================================================
-   CUSTOM TEXT SELECTION — ADAPTIVE LUXURY PALETTE
-   - Default: Warm Haute-Gastronomie Copper (`rgb(166, 90, 68)`) with Linen text (`#f5f3ef`)
-   - Adaptive Alternative (for copper/terracotta text or copper background containers):
-     Edison Champagne Gold (`#e5dec9`) with Deep Slate Charcoal text (`#09090a`)
+   CUSTOM TEXT SELECTION — NOIR PARIS COPPER
    ========================================================================== */
 ::selection {
   background-color: rgb(166, 90, 68) !important;
@@ -33,29 +30,6 @@
 ::-moz-selection {
   background-color: rgb(166, 90, 68) !important;
   color: #f5f3ef !important;
-}
-
-/* Scoped and Dynamic Alternative Selection for Copper / Terracotta elements */
-html.selection-copper-active ::selection,
-.tile-solid-top::selection,
-.tile-solid-top *::selection,
-[class*="copper"]::selection,
-[class*="copper"] *::selection,
-.copper-selection-alt::selection,
-.copper-selection-alt *::selection {
-  background-color: #e5dec9 !important;
-  color: #09090a !important;
-}
-
-html.selection-copper-active ::-moz-selection,
-.tile-solid-top::-moz-selection,
-.tile-solid-top *::-moz-selection,
-[class*="copper"]::-moz-selection,
-[class*="copper"] *::-moz-selection,
-.copper-selection-alt::-moz-selection,
-.copper-selection-alt *::-moz-selection {
-  background-color: #e5dec9 !important;
-  color: #09090a !important;
 }
 
 /* Custom Cursor Rules (Matching user's bespoke design at 50% compact scale) */
