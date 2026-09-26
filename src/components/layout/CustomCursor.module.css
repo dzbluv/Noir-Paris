@@ -1,0 +1,107 @@
+.cursorRoot {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  mix-blend-mode: normal;
+  will-change: transform, opacity;
+  transition: opacity 0.3s cubic-bezier(0.16, 0.84, 0.28, 1);
+}
+
+.cursorHidden {
+  opacity: 0;
+}
+
+/* Precision Center Dot */
+.cursorDot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--edison, #e5dec9);
+  box-shadow: 0 0 10px rgba(166, 90, 68, 0.85);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s cubic-bezier(0.16, 0.84, 0.28, 1),
+              height 0.25s cubic-bezier(0.16, 0.84, 0.28, 1),
+              background-color 0.25s ease,
+              box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+/* Fluid Trailing Outer Ring */
+.cursorRing {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(166, 90, 68, 0.42);
+  background-color: rgba(166, 90, 68, 0.04);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.35s cubic-bezier(0.16, 0.84, 0.28, 1),
+              height 0.35s cubic-bezier(0.16, 0.84, 0.28, 1),
+              border-color 0.35s cubic-bezier(0.16, 0.84, 0.28, 1),
+              background-color 0.35s cubic-bezier(0.16, 0.84, 0.28, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 0.84, 0.28, 1);
+  will-change: transform;
+}
+
+/* Interactive Hover State (Links, Buttons, Clickable elements) */
+.isHovered .cursorRing {
+  width: 54px;
+  height: 54px;
+  border-color: rgba(229, 222, 201, 0.8);
+  background-color: rgba(166, 90, 68, 0.16);
+  box-shadow: 0 0 24px rgba(166, 90, 68, 0.28);
+}
+
+.isHovered .cursorDot {
+  width: 7px;
+  height: 7px;
+  background-color: #f5f3ef;
+  box-shadow: 0 0 14px rgba(229, 222, 201, 0.95);
+}
+
+/* Active Click / Press State */
+.isPressed .cursorRing {
+  width: 26px;
+  height: 26px;
+  border-color: rgb(166, 90, 68);
+  background-color: rgba(166, 90, 68, 0.28);
+}
+
+.isPressed .cursorDot {
+  width: 4px;
+  height: 4px;
+}
+
+/* Text Selection / Input Hover State */
+.isTextHovered .cursorRing {
+  width: 22px;
+  height: 38px;
+  border-radius: 4px;
+  border-color: rgba(166, 90, 68, 0.6);
+  background-color: rgba(166, 90, 68, 0.08);
+}
+
+.isTextHovered .cursorDot {
+  height: 18px;
+  width: 2px;
+  border-radius: 1px;
+  background-color: rgb(166, 90, 68);
+}
+
+/* Touch Device Optimization: completely hide on mobile & touch */
+@media (pointer: coarse), (hover: none) {
+  .cursorRoot,
+  .cursorDot,
+  .cursorRing {
+    display: none !important;
+  }
+}
