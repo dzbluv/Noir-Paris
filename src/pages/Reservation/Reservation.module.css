@@ -1,0 +1,1323 @@
+/* ==========================================================================
+   NOIR — PAGE RÉSERVATION (TABLES & PARTITIONS NOCTURNES)
+   Bespoke Architectural Luxury & Haute-Gastronomie Editorial Style
+   ========================================================================== */
+
+.reservationPageRoot {
+  background-color: var(--slate-deep, #09090a);
+  color: var(--linen, #f5f3ef);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: clip;
+  padding-bottom: clamp(90px, 14vh, 160px);
+}
+
+/* Atmospheric Ambient Glows */
+.ambientGlow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(140px);
+  z-index: 0;
+  opacity: 0.16;
+}
+
+.ambientGlowTop {
+  top: -60px;
+  right: 10%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, #5c1d24 0%, transparent 70%);
+}
+
+.ambientGlowMid {
+  top: 45%;
+  left: -80px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #a65a44 0%, transparent 70%);
+  opacity: 0.12;
+}
+
+/* Container */
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3.8vw, 56px);
+  position: relative;
+  z-index: 1;
+}
+
+/* Chapter Label */
+.chapterLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #a65a44;
+  font-weight: 500;
+  margin-bottom: clamp(14px, 2vh, 22px);
+}
+
+.chapterLabel::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background-color: #a65a44;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   01 / HERO SECTION — L'INVITATION À LA TABLE
+   ========================================================================== */
+
+.heroSection {
+  min-height: 58vh;
+  padding-top: clamp(140px, 19vh, 190px);
+  padding-bottom: clamp(60px, 9vh, 90px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.14));
+  position: relative;
+  overflow: hidden;
+  background-color: var(--slate-deep, #09090a);
+}
+
+.heroBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heroBackdropImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  filter: contrast(1.14) brightness(0.62);
+  transform: scale(1.04);
+  transition: transform 2s cubic-bezier(0.16, 0.84, 0.28, 1);
+}
+
+.heroGradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #09090a 0%,
+    rgba(9, 9, 10, 0.94) 38%,
+    rgba(9, 9, 10, 0.72) 65%,
+    rgba(9, 9, 10, 0.45) 85%,
+    rgba(9, 9, 10, 0.3) 100%
+  );
+}
+
+.heroVignetteOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 9, 10, 0.75) 0%,
+    transparent 25%,
+    transparent 75%,
+    #09090a 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
+
+.heroTitle {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(2.8rem, 6.5vw, 5.8rem);
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.01em;
+  color: var(--linen, #f5f3ef);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.heroTitle i {
+  font-style: italic;
+  color: var(--edison, #e5dec9);
+  font-weight: 300;
+}
+
+.heroSubtitle {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(1.1rem, 1.7vw, 1.38rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--soft, rgba(245, 243, 239, 0.82));
+  max-width: 48ch;
+  margin-top: clamp(20px, 3vh, 32px);
+  border-left: 1px solid #a65a44;
+  padding-left: clamp(16px, 2vw, 22px);
+}
+
+.heroMetaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(18px, 3vw, 40px);
+  margin-top: clamp(32px, 4.5vh, 48px);
+  padding-top: clamp(20px, 2.5vh, 28px);
+  border-top: 1px solid var(--hair, rgba(245, 243, 239, 0.12));
+}
+
+.heroMetaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.heroMetaLabel {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 239, 0.45);
+}
+
+.heroMetaVal {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--linen, #f5f3ef);
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   02 / MAIN SECTION & LAYOUT GRID
+   ========================================================================== */
+
+.mainSection {
+  padding-top: clamp(56px, 8vh, 88px);
+  position: relative;
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(48px, 6.5vw, 84px);
+  align-items: start;
+}
+
+@media (min-width: 980px) {
+  .layoutGrid {
+    grid-template-columns: minmax(0, 1.38fr) minmax(0, 1fr);
+  }
+}
+
+/* ==========================================================================
+   03 / EXPERIENCE SELECTION (ARCHITECTURAL TABS)
+   ========================================================================== */
+
+.experienceContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.12));
+}
+
+.experienceHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.experienceGroupLabel {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #a65a44;
+  font-weight: 600;
+}
+
+.experienceGroupSub {
+  font-family: var(--font-bodoni, serif);
+  font-size: 0.84rem;
+  font-style: italic;
+  color: rgba(245, 243, 239, 0.45);
+}
+
+.experienceToggleGroup {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .experienceToggleGroup {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.experienceBtn {
+  background: rgba(14, 14, 16, 0.6);
+  border: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.12));
+  padding: 24px 22px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 0.84, 0.28, 1);
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.experienceBtn:hover {
+  border-color: rgba(166, 90, 68, 0.5);
+  background: rgba(20, 20, 23, 0.85);
+}
+
+.experienceBtnActive {
+  border-color: #a65a44;
+  background: rgba(166, 90, 68, 0.08);
+  box-shadow: inset 0 0 24px rgba(166, 90, 68, 0.06);
+}
+
+.experienceBtnMarker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: transparent;
+  transition: background 0.35s ease;
+}
+
+.experienceBtnActive .experienceBtnMarker {
+  background: #a65a44;
+}
+
+.experienceBtnContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.experienceBtnTop {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.experienceIndex {
+  font-family: var(--font-bodoni, serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #a65a44;
+  line-height: 1;
+}
+
+.experienceName {
+  font-family: var(--font-bodoni, serif);
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--linen, #f5f3ef);
+  font-weight: 400;
+  flex: 1;
+}
+
+.experienceCap {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #a65a44;
+  font-weight: 500;
+}
+
+.experienceDesc {
+  font-family: var(--font-bodoni, serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--soft, rgba(245, 243, 239, 0.65));
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ==========================================================================
+   04 / FORM INTERFACE (BESPOKE EDITORIAL SYSTEM)
+   ========================================================================== */
+
+.formBox {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 5vh, 48px);
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Section Headings with Roman Numerals */
+.sectionHeadingWrap {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.12));
+}
+
+.sectionRoman {
+  font-family: var(--font-bodoni, serif);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #a65a44;
+  line-height: 1;
+}
+
+.sectionHeadingText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sectionTitle {
+  font-family: var(--font-bodoni, serif);
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--linen, #f5f3ef);
+  font-weight: 400;
+  margin: 0;
+}
+
+.sectionSubtitle {
+  font-family: var(--font-bodoni, serif);
+  font-size: 0.84rem;
+  font-style: italic;
+  color: rgba(245, 243, 239, 0.45);
+  margin: 0;
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .fieldRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fieldLabelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.fieldLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 239, 0.75);
+  font-weight: 500;
+}
+
+.fieldLabel svg {
+  color: #a65a44;
+}
+
+.fieldLabelDetail {
+  font-family: var(--font-bodoni, serif);
+  font-size: 0.78rem;
+  font-style: italic;
+  color: rgba(245, 243, 239, 0.4);
+}
+
+/* ==========================================================================
+   GUEST COUNT SELECTOR (ARCHITECTURAL BOXES)
+   ========================================================================== */
+
+.guestSelector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+@media (min-width: 540px) {
+  .guestSelector {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+.guestBox {
+  background: rgba(14, 14, 16, 0.6);
+  border: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.12));
+  color: rgba(245, 243, 239, 0.75);
+  padding: 12px 6px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 0.84, 0.28, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 58px;
+}
+
+.guestBox:hover {
+  border-color: rgba(166, 90, 68, 0.6);
+  background: rgba(22, 22, 26, 0.8);
+}
+
+.guestBoxActive {
+  background: rgba(166, 90, 68, 0.14);
+  border-color: #a65a44;
+  color: var(--edison, #e5dec9);
+  box-shadow: inset 0 0 12px rgba(166, 90, 68, 0.1);
+}
+
+.guestNum {
+  font-family: var(--font-bodoni, serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.guestWord {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 239, 0.45);
+}
+
+.guestBoxActive .guestWord {
+  color: #a65a44;
+}
+
+.guestBoxPrivatisation {
+  grid-column: span 2;
+}
+
+@media (min-width: 540px) {
+  .guestBoxPrivatisation {
+    grid-column: span 1;
+  }
+}
+
+/* ==========================================================================
+   TIME SLOTS SELECTOR
+   ========================================================================== */
+
+.timeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+@media (min-width: 480px) {
+  .timeGrid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.timeBox {
+  background: rgba(14, 14, 16, 0.6);
+  border: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.12));
+  color: rgba(245, 243, 239, 0.75);
+  padding: 12px 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 0.84, 0.28, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+.timeBox:hover {
+  border-color: rgba(166, 90, 68, 0.6);
+  color: var(--linen, #f5f3ef);
+  background: rgba(22, 22, 26, 0.8);
+}
+
+.timeBoxActive {
+  background: rgba(166, 90, 68, 0.14);
+  border-color: #a65a44;
+  color: var(--edison, #e5dec9);
+  box-shadow: inset 0 0 12px rgba(166, 90, 68, 0.1);
+}
+
+.timeVal {
+  font-family: var(--font-bodoni, serif);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
+   INPUTS & TEXTAREAS
+   ========================================================================== */
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.textInput,
+.textArea {
+  background-color: rgba(14, 14, 16, 0.75);
+  border: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.14));
+  color: var(--linen, #f5f3ef);
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  padding: 14px 18px;
+  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  min-height: 48px;
+}
+
+.textInput:focus,
+.textArea:focus {
+  outline: none;
+  border-color: #a65a44;
+  background-color: rgba(20, 20, 24, 0.92);
+  box-shadow: 0 0 0 1px rgba(166, 90, 68, 0.3);
+}
+
+.textInput::placeholder,
+.textArea::placeholder {
+  color: rgba(245, 243, 239, 0.28);
+  font-style: italic;
+  font-family: var(--font-bodoni, serif);
+}
+
+.dateInput {
+  color-scheme: dark;
+  font-family: var(--font-bodoni, serif);
+  font-size: 1.02rem;
+  letter-spacing: 0.04em;
+}
+
+.textArea {
+  resize: vertical;
+  line-height: 1.55;
+  min-height: 96px;
+}
+
+.inputError {
+  border-color: #d9534f !important;
+}
+
+.fieldError {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: #ff6b6b;
+}
+
+.fieldHint {
+  font-family: var(--font-bodoni, serif);
+  font-size: 0.82rem;
+  font-style: italic;
+  color: rgba(245, 243, 239, 0.42);
+}
+
+/* ==========================================================================
+   DIETARY SELECTION CHIPS
+   ========================================================================== */
+
+.dietSelectorWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.dietSelectorTitle {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 239, 0.45);
+  font-weight: 500;
+}
+
+.dietTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dietTagBtn {
+  background: rgba(14, 14, 16, 0.5);
+  border: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.12));
+  color: rgba(245, 243, 239, 0.65);
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dietTagBtn span {
+  color: #a65a44;
+  font-weight: 600;
+}
+
+.dietTagBtn:hover {
+  border-color: #a65a44;
+  color: var(--edison, #e5dec9);
+  background: rgba(166, 90, 68, 0.12);
+}
+
+/* General Error Alert */
+.generalError {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: rgba(92, 29, 36, 0.4);
+  border: 1px solid rgba(166, 90, 68, 0.6);
+  color: var(--linen, #f5f3ef);
+  padding: 16px 20px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   FORM FOOTER & HAUTE-GASTRONOMIE SUBMIT BUTTON
+   ========================================================================== */
+
+.formFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.14));
+}
+
+.guaranteeNotice {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(14, 14, 16, 0.4);
+  border-left: 2px solid #a65a44;
+  padding: 14px 18px;
+}
+
+.guaranteeIcon {
+  color: #a65a44;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.policyNotice {
+  font-family: var(--font-bodoni, serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: rgba(245, 243, 239, 0.6);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: #09090a;
+  border: 1px solid #a65a44;
+  color: var(--linen, #f5f3ef);
+  padding: 20px 40px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 0.84, 0.28, 1);
+  min-height: 58px;
+  overflow: hidden;
+}
+
+.submitBtn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #a65a44;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 0.84, 0.28, 1);
+  z-index: 0;
+}
+
+.submitBtnText {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s ease;
+}
+
+.submitBtnArrow {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, color 0.4s ease;
+}
+
+.submitBtn:hover:not(:disabled)::before {
+  transform: translateY(0);
+}
+
+.submitBtn:hover:not(:disabled) .submitBtnText,
+.submitBtn:hover:not(:disabled) .submitBtnArrow {
+  color: #09090a;
+}
+
+.submitBtn:hover:not(:disabled) .submitBtnArrow {
+  transform: translateX(6px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   05 / MONOGRAPH COLUMN & HOUSE PROTOCOL (Right Side)
+   ========================================================================== */
+
+.policyColumn {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 5vh, 48px);
+}
+
+/* Atmosphere Vignette Frame */
+.atmosphereFrame {
+  position: relative;
+  border: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.16));
+  padding: 12px;
+  background: rgba(14, 14, 16, 0.6);
+}
+
+.atmosphereImageWrap {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  position: relative;
+}
+
+.atmosphereImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.08) brightness(0.85);
+  transition: transform 1.2s cubic-bezier(0.16, 0.84, 0.28, 1);
+}
+
+.atmosphereImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(9, 9, 10, 0.6) 100%);
+}
+
+.atmosphereFrame:hover .atmosphereImage {
+  transform: scale(1.03);
+}
+
+.atmosphereMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--hair, rgba(245, 243, 239, 0.08));
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.atmosphereMetaItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 239, 0.6);
+}
+
+.atmosphereMetaItem svg {
+  color: #a65a44;
+}
+
+.atmosphereMetaDetail {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #a65a44;
+}
+
+/* Le Protocole de la Nuit (Refined Monograph Ledger) */
+.rulesMonograph {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rulesMonographHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-bottom: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.14));
+  padding-bottom: 14px;
+}
+
+.rulesMonographTag {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.64rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #a65a44;
+  font-weight: 500;
+}
+
+.rulesMonographTitle {
+  font-family: var(--font-bodoni, serif);
+  font-size: 1.75rem;
+  color: var(--linen, #f5f3ef);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.rulesLedger {
+  display: flex;
+  flex-direction: column;
+}
+
+.ledgerItem {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--hair, rgba(245, 243, 239, 0.08));
+}
+
+.ledgerItem:last-child {
+  border-bottom: none;
+}
+
+.ledgerIndex {
+  font-family: var(--font-bodoni, serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #a65a44;
+  line-height: 1.1;
+}
+
+.ledgerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ledgerHeading {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--linen, #f5f3ef);
+  font-weight: 500;
+  margin: 0;
+}
+
+.ledgerText {
+  font-family: var(--font-bodoni, serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--soft, rgba(245, 243, 239, 0.72));
+  line-height: 1.5;
+  margin: 0;
+}
+
+.policyEmailLink {
+  color: var(--edison, #e5dec9);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.3s ease;
+}
+
+.policyEmailLink:hover {
+  color: #a65a44;
+}
+
+/* Concierge Stamp Seal */
+.conciergeStamp {
+  border: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.16));
+  padding: clamp(24px, 4vw, 36px);
+  background: rgba(14, 14, 16, 0.75);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.conciergeStamp::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border: 1px solid rgba(229, 222, 201, 0.06);
+  pointer-events: none;
+}
+
+.conciergeTop {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.conciergeBadge {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #a65a44;
+  font-weight: 500;
+}
+
+.conciergePhone {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  color: var(--linen, #f5f3ef);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.conciergeBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--hair, rgba(245, 243, 239, 0.08));
+}
+
+.conciergeHours {
+  font-family: var(--font-bodoni, serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: rgba(245, 243, 239, 0.55);
+  margin: 0;
+}
+
+.conciergeEmail {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--edison, #e5dec9);
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.conciergeEmail:hover {
+  color: #a65a44;
+}
+
+/* ==========================================================================
+   06 / SUCCESS CARTON D'INVITATION
+   ========================================================================== */
+
+.successReceipt {
+  border: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.22));
+  background: rgba(14, 14, 16, 0.9);
+  padding: 12px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75);
+}
+
+.cartonInnerBorder {
+  border: 1px solid rgba(229, 222, 201, 0.1);
+  padding: clamp(28px, 4.5vw, 56px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3.8vh, 36px);
+}
+
+.successHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.successIconWrap {
+  width: 52px;
+  height: 52px;
+  border: 1px solid #a65a44;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a65a44;
+  flex-shrink: 0;
+  background: rgba(166, 90, 68, 0.08);
+}
+
+.receiptTag {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #a65a44;
+  font-weight: 500;
+}
+
+.receiptTitle {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--linen, #f5f3ef);
+  line-height: 1.05;
+  margin-top: 4px;
+}
+
+.successNotice {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  font-style: italic;
+  color: var(--soft, rgba(245, 243, 239, 0.85));
+  line-height: 1.55;
+  border-left: 1px solid #a65a44;
+  padding-left: 16px;
+  margin: 0;
+}
+
+.receiptVoucher {
+  background: #09090a;
+  border: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.12));
+  padding: clamp(20px, 3.5vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.voucherRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--hair, rgba(245, 243, 239, 0.08));
+}
+
+.voucherRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.voucherLabel {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 239, 0.45);
+}
+
+.voucherVal {
+  font-family: var(--font-bodoni, serif);
+  font-size: 1.05rem;
+  color: var(--linen, #f5f3ef);
+}
+
+.voucherCode {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 1.05rem;
+  color: #a65a44;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.receiptActions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.newReservationBtn {
+  background: transparent;
+  border: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.2));
+  color: var(--linen, #f5f3ef);
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.74rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  padding: 14px 26px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.newReservationBtn:hover {
+  border-color: #a65a44;
+  color: var(--edison, #e5dec9);
+}
+
+.exploreCarteLink {
+  background: #111113;
+  border: 1px solid #a65a44;
+  color: var(--linen, #f5f3ef);
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.74rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  padding: 14px 26px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.exploreCarteLink:hover {
+  background: #a65a44;
+  color: #09090a;
+}
+
+/* ==========================================================================
+   07 / RESPONSIVE OPTIMIZATIONS (PHONES & TABLETS)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .heroSection {
+    min-height: auto;
+    padding-top: clamp(110px, 15vh, 140px);
+    padding-bottom: 50px;
+  }
+
+  .heroTitle {
+    font-size: clamp(2.4rem, 9.5vw, 4rem);
+    line-height: 0.96;
+  }
+
+  .heroSubtitle {
+    font-size: 1.05rem;
+    margin-top: 18px;
+    padding-left: 14px;
+  }
+
+  .heroMetaRow {
+    gap: 16px 24px;
+    margin-top: 24px;
+    padding-top: 18px;
+  }
+
+  .mainSection {
+    padding-top: 40px;
+  }
+
+  .layoutGrid {
+    gap: 48px;
+  }
+
+  .experienceToggleGroup {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .experienceBtn {
+    padding: 18px 18px;
+  }
+
+  .timeGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .submitBtn {
+    width: 100%;
+    padding: 18px 20px;
+  }
+
+  .receiptActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .newReservationBtn,
+  .exploreCarteLink {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 2.25rem;
+  }
+
+  .guestBox {
+    min-height: 52px;
+    padding: 10px 4px;
+  }
+
+  .guestNum {
+    font-size: 1.2rem;
+  }
+
+  .timeBox {
+    min-height: 44px;
+  }
+
+  .timeVal {
+    font-size: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroBackdropImage,
+  .atmosphereImage,
+  .submitBtnArrow,
+  .submitBtn::before {
+    transition: none !important;
+    transform: none !important;
+  }
+}

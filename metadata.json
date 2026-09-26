@@ -1,0 +1,6 @@
+{
+  "name": "NOIR",
+  "description": "NOIR Paris — Contemporary French gastronomic restaurant. Cuisine française contemporaine by Chef Élise Moreau. 12 tables, dinner Tuesday to Saturday.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

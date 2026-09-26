@@ -1,0 +1,1236 @@
+/* ==========================================================================
+   NOIR — PAGE À PROPOS (ÉDITORIAL ARCHITECTURAL & GASTRONOMIQUE)
+   Exact Theme, Styling, Colors & Animation System of Home and Menu
+   ========================================================================== */
+
+.pageRoot {
+  background-color: var(--slate-deep, #09090a);
+  color: var(--linen, #f5f3ef);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: clip;
+}
+
+/* Atmospheric Ambient Orbs */
+.ambientGlow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(130px);
+  z-index: 0;
+  opacity: 0.18;
+}
+
+.ambientGlowTop {
+  top: -80px;
+  right: 12%;
+  width: 540px;
+  height: 540px;
+  background: radial-gradient(circle, #5c1d24 0%, transparent 70%);
+}
+
+.ambientGlowMid {
+  top: 36%;
+  left: -80px;
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, #a65a44 0%, transparent 70%);
+  opacity: 0.14;
+}
+
+.ambientGlowDeep {
+  bottom: 12%;
+  right: -60px;
+  width: 720px;
+  height: 720px;
+  background: radial-gradient(circle, #3d1418 0%, transparent 75%);
+  opacity: 0.16;
+}
+
+/* Container */
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3.8vw, 56px);
+  position: relative;
+  z-index: 1;
+}
+
+/* Chapter Label */
+.chapterLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #a65a44;
+  font-weight: 500;
+  margin-bottom: clamp(14px, 2vh, 24px);
+}
+
+.chapterLabel::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background-color: #a65a44;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   01 / HERO — À PROPOS DE NOIR
+   ========================================================================== */
+
+.heroSection {
+  min-height: 86vh;
+  padding-top: clamp(140px, 20vh, 200px);
+  padding-bottom: clamp(70px, 12vh, 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.15));
+  position: relative;
+  overflow: hidden;
+  background-color: var(--slate-deep, #09090a);
+}
+
+.heroSection .container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0 clamp(24px, 5.5vw, 96px);
+}
+
+.heroBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heroBackdropImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+  transform: scale(1.06);
+  filter: contrast(1.15) brightness(0.85);
+}
+
+.heroGradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #09090a 0%,
+    #09090a 35%,
+    rgba(9, 9, 10, 0.94) 50%,
+    rgba(9, 9, 10, 0.65) 68%,
+    rgba(9, 9, 10, 0.25) 85%,
+    transparent 100%
+  );
+}
+
+.heroVignetteOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 9, 10, 0.7) 0%,
+    transparent 20%,
+    transparent 78%,
+    #09090a 100%
+  );
+}
+
+@media (max-width: 860px) {
+  .heroGradientOverlay {
+    background: linear-gradient(
+      180deg,
+      rgba(9, 9, 10, 0.96) 0%,
+      rgba(9, 9, 10, 0.85) 45%,
+      rgba(9, 9, 10, 0.65) 100%
+    );
+  }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 0;
+}
+
+.heroTextCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleMask {
+  overflow: hidden;
+  display: block;
+}
+
+.heroTitle {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(3.2rem, 7.8vw, 7.2rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  color: var(--linen, #f5f3ef);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.heroTitle i {
+  font-style: italic;
+  color: var(--edison, #e5dec9);
+  font-weight: 300;
+}
+
+.heroSubtitle {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--edison, #e5dec9);
+  max-width: 44ch;
+  margin-top: clamp(24px, 3.5vh, 40px);
+  border-left: 1px solid #a65a44;
+  padding-left: clamp(16px, 2vw, 24px);
+}
+
+.heroMetaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(18px, 3vw, 42px);
+  margin-top: clamp(36px, 5vh, 60px);
+  padding-top: clamp(20px, 3vh, 32px);
+  border-top: 1px solid var(--hair, rgba(245, 243, 239, 0.12));
+}
+
+.heroMetaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.heroMetaLabel {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 239, 0.45);
+}
+
+.heroMetaVal {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--linen, #f5f3ef);
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   02 / INTRODUCTION ÉDITORIALE (MANIFESTE)
+   ========================================================================== */
+
+.introSection {
+  padding: clamp(90px, 16vh, 180px) 0;
+  position: relative;
+  border-bottom: 1px solid var(--hair, rgba(245, 243, 239, 0.08));
+}
+
+.introLockup {
+  max-width: 1220px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 clamp(20px, 3.5vw, 60px);
+}
+
+.introQuoteMark {
+  font-family: var(--font-bodoni, serif);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: #a65a44;
+  opacity: 0.6;
+  margin-bottom: 24px;
+}
+
+.introLines {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vh, 36px);
+  padding: clamp(8px, 1.5vh, 20px) 0;
+}
+
+.introLine {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(1.45rem, 3.2vw, 2.75rem);
+  font-weight: 300;
+  line-height: 1.38;
+  color: rgba(245, 243, 239, 0.88);
+  letter-spacing: 0.01em;
+  padding: clamp(6px, 1vh, 14px) clamp(10px, 1.8vw, 28px);
+}
+
+.introLineHighlight {
+  font-family: var(--font-bodoni, serif);
+  color: var(--edison, #e5dec9);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0 6px;
+  position: relative;
+  transition: letter-spacing 0.4s ease, color 0.4s ease;
+}
+
+.introLineHighlight:hover {
+  letter-spacing: 0.18em;
+  color: #f5f3ef;
+}
+
+/* ==========================================================================
+   CHAPTER TRANSITION BREAKS & NUMERALS
+   ========================================================================== */
+
+.chapterTransitionSection {
+  padding: clamp(80px, 14vh, 160px) 0;
+  position: relative;
+  text-align: center;
+  border-bottom: 1px solid var(--hair, rgba(245, 243, 239, 0.08));
+  overflow: hidden;
+}
+
+.transitionWordWrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  pointer-events: none;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  opacity: 0.035;
+}
+
+.giantWordWatermark {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(4.5rem, 15vw, 12rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--linen, #f5f3ef);
+}
+
+.chapterLockup {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.chapterNumeralLockup {
+  width: clamp(140px, 20vw, 220px);
+  margin-bottom: 16px;
+}
+
+.chapterNumeralSvg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.chapterBreakTitle {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #a65a44;
+  margin-bottom: 14px;
+}
+
+.chapterBreakLead {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(1.25rem, 2.2vw, 1.85rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--edison, #e5dec9);
+  line-height: 1.45;
+  max-width: 48ch;
+}
+
+/* ==========================================================================
+   CHAPTER SECTIONS & EDITORIAL GRIDS
+   ========================================================================== */
+
+.chapterSection {
+  padding: clamp(80px, 12vw, 150px) 0;
+  border-bottom: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.12));
+  background-color: var(--slate-deep, #09090a);
+  position: relative;
+}
+
+.chapterSectionAlt {
+  padding: clamp(80px, 12vw, 150px) 0;
+  border-bottom: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.12));
+  background-color: var(--slate, #111113);
+  position: relative;
+}
+
+.editorialSplitGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .editorialSplitGrid {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+
+  .editorialSplitGridReverse {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+}
+
+.editorialTextCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTitle {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.01em;
+  color: var(--linen, #f5f3ef);
+  font-weight: 400;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.sectionTitle i {
+  font-style: italic;
+  color: var(--edison, #e5dec9);
+  font-weight: 300;
+}
+
+.sectionRule {
+  width: clamp(64px, 8vw, 96px);
+  height: 1px;
+  background-color: #a65a44;
+  margin-top: 20px;
+  margin-bottom: 28px;
+  transform-origin: left;
+}
+
+.narrativeParagraph {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.85;
+  color: var(--dim, rgba(245, 243, 239, 0.65));
+  margin-bottom: 20px;
+}
+
+.narrativeParagraph strong {
+  color: var(--linen, #f5f3ef);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   SECTION 01 / HISTOIRE — LEDGER MILESTONES
+   ========================================================================== */
+
+.milestoneLedger {
+  border-top: 1px solid rgba(166, 90, 68, 0.35);
+  margin-top: 24px;
+}
+
+.milestoneRow {
+  border-bottom: 1px solid var(--hair, rgba(245, 243, 239, 0.1));
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  align-items: baseline;
+  gap: 20px;
+  padding: 16px 0;
+}
+
+.milestoneYear {
+  font-family: var(--font-bodoni, serif);
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: #a65a44;
+}
+
+.milestoneText {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.88rem;
+  color: var(--soft, rgba(245, 243, 239, 0.8));
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   SECTION 02 / LA CHEFFE — BESPOKE QUOTE & PILLARS LEDGER
+   ========================================================================== */
+
+.quoteCard {
+  border-left: 2px solid #a65a44;
+  padding: 8px 0 8px clamp(18px, 2.5vw, 28px);
+  margin: 24px 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chefQuoteText {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-style: italic;
+  color: var(--linen, #f5f3ef);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Editorial Pillars Ledger (Replaces generic values boxes) */
+.chefPillarsLedger {
+  border-top: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.16));
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chefPillarItem {
+  border-bottom: 1px solid var(--hair, rgba(245, 243, 239, 0.1));
+  padding: 18px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: padding-left 0.3s ease;
+}
+
+.chefPillarItem:hover {
+  padding-left: 6px;
+}
+
+.chefPillarHead {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.chefPillarNumeral {
+  font-family: var(--font-bodoni, serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #a65a44;
+  line-height: 1;
+}
+
+.chefPillarTitle {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--linen, #f5f3ef);
+  font-weight: 500;
+}
+
+.chefPillarText {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.88rem;
+  color: var(--soft, rgba(245, 243, 239, 0.72));
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   SECTION 03 / LA CUISINE — EDITORIAL TRIPTYCH (Replaces generic 3 cards)
+   ========================================================================== */
+
+.wideEditorialHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: clamp(48px, 8vh, 80px);
+  max-width: 860px;
+}
+
+.wideTitle {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  line-height: 0.96;
+  color: var(--linen, #f5f3ef);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.wideTitle i {
+  font-style: italic;
+  color: var(--edison, #e5dec9);
+  font-weight: 300;
+}
+
+.wideLead {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+  font-style: italic;
+  color: var(--soft, rgba(245, 243, 239, 0.8));
+  line-height: 1.55;
+  margin-top: 18px;
+}
+
+.cuisineTriptych {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(32px, 4.5vw, 64px);
+  border-top: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.16));
+  padding-top: clamp(32px, 5vh, 48px);
+  margin-bottom: clamp(60px, 9vh, 90px);
+}
+
+@media (min-width: 820px) {
+  .cuisineTriptych {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cuisineTriptychCol {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.triptychNumeralWrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.triptychNum {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 400;
+  color: #a65a44;
+  line-height: 0.9;
+}
+
+.triptychLine {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background-color: #a65a44;
+  opacity: 0.6;
+}
+
+.triptychTitle {
+  font-family: var(--font-bodoni, serif);
+  font-size: 1.65rem;
+  color: var(--linen, #f5f3ef);
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.triptychLead {
+  font-family: var(--font-bodoni, serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--edison, #e5dec9);
+  margin-bottom: 12px;
+}
+
+.triptychText {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.92rem;
+  color: var(--dim, rgba(245, 243, 239, 0.65));
+  line-height: 1.75;
+}
+
+.wideVisualWrapper {
+  margin-top: 36px;
+}
+
+/* ==========================================================================
+   SECTION 04 / PHILOSOPHIE — MONOGRAPH QUOTE & SPATIAL PROTOCOL
+   ========================================================================== */
+
+.philosophyManifestoBlock {
+  margin: 28px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.manifestoQuoteWrap {
+  border-left: 2px solid #a65a44;
+  padding-left: clamp(20px, 3vw, 32px);
+}
+
+.manifestoBigQuote {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  font-style: italic;
+  color: var(--linen, #f5f3ef);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.manifestoBigQuote em {
+  color: var(--edison, #e5dec9);
+  font-style: italic;
+}
+
+.spatialProtocolRow {
+  border-top: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.16));
+  border-bottom: 1px solid var(--hair, rgba(245, 243, 239, 0.1));
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.protocolNum {
+  font-family: var(--font-bodoni, serif);
+  font-size: 2.2rem;
+  color: #a65a44;
+  font-style: italic;
+  line-height: 1;
+}
+
+.protocolTextCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.protocolLabel {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.64rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--edison, #e5dec9);
+  font-weight: 600;
+}
+
+.protocolStatement {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--linen, #f5f3ef);
+}
+
+/* ==========================================================================
+   SECTION 05 / LE LIEU — 4 MATERIALS MONOGRAPH (Replaces generic 4 cards)
+   ========================================================================== */
+
+.materialsMonograph {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(28px, 4vw, 48px);
+  border-top: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.16));
+  border-bottom: 1px solid var(--hair, rgba(245, 243, 239, 0.1));
+  padding: clamp(32px, 5vh, 48px) 0;
+}
+
+@media (min-width: 600px) {
+  .materialsMonograph {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1040px) {
+  .materialsMonograph {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.materialEntry {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.materialHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.materialNumeral {
+  font-family: var(--font-bodoni, serif);
+  font-size: 1.8rem;
+  font-style: italic;
+  color: #a65a44;
+  line-height: 1;
+}
+
+.materialDividerLine {
+  flex: 1;
+  height: 1px;
+  background-color: rgba(166, 90, 68, 0.35);
+}
+
+.materialTitle {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--linen, #f5f3ef);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.materialOrigin {
+  font-family: var(--font-bodoni, serif);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--edison, #e5dec9);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.materialNarrative {
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.88rem;
+  color: var(--dim, rgba(245, 243, 239, 0.62));
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ==========================================================================
+   IMAGE FRAMING SYSTEM (Matching Homepage & Menu philosophy-image-frame)
+   ========================================================================== */
+
+.editorialVisualCol {
+  position: relative;
+}
+
+.imageFrame {
+  position: relative;
+  border: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.18));
+  padding: clamp(8px, 1.2vw, 14px);
+  background: rgba(17, 17, 19, 0.4);
+}
+
+.imageWrap {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.imageWrapPortrait {
+  aspect-ratio: 3 / 4;
+}
+
+.imageWrapLandscape {
+  aspect-ratio: 16 / 10;
+}
+
+.imageWrapWide {
+  aspect-ratio: 21 / 9;
+}
+
+@media (max-width: 640px) {
+  .imageWrapWide {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.framedImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 0.84, 0.28, 1);
+  display: block;
+}
+
+.imageFrame:hover .framedImage {
+  transform: scale(1.025);
+}
+
+.imageTint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 9, 10, 0.15) 0%,
+    rgba(9, 9, 10, 0.45) 100%
+  );
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   07 / TRANSITION VERS RÉSERVATION ("LA SOIRÉE CONTINUE.")
+   Exact Replica of Menu & Home Page
+   ========================================================================== */
+
+.soireeContinueSection {
+  min-height: 80vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--hair-tan, rgba(229, 222, 201, 0.15));
+  background-color: var(--slate-deep, #09090a);
+}
+
+.soireeBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.soireeBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  filter: contrast(1.15) brightness(0.68) grayscale(0.2);
+  transform: scale(1.04);
+}
+
+.soireeOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(9, 9, 10, 0.72) 0%,
+    rgba(9, 9, 10, 0.94) 85%
+  );
+}
+
+.soireeInner {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.soireeTitle {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(3.2rem, 8.5vw, 7.8rem);
+  font-weight: 400;
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: var(--linen, #f5f3ef);
+  margin: 0;
+}
+
+.soireeTitle i {
+  font-style: italic;
+  color: var(--edison, #e5dec9);
+}
+
+.soireeLead {
+  font-family: var(--font-bodoni, serif);
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-style: italic;
+  color: var(--soft, rgba(245, 243, 239, 0.85));
+  margin-top: 24px;
+}
+
+/* Editorial CTA Link */
+.editorialCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: clamp(36px, 6vh, 60px);
+  text-decoration: none;
+  font-family: var(--font-hanken, sans-serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--linen, #f5f3ef);
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 8px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.editorialCtaLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #a65a44;
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 0.84, 0.28, 1), background-color 0.4s ease;
+}
+
+.editorialCtaArrow {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.16, 0.84, 0.28, 1), color 0.4s ease;
+  color: #a65a44;
+  font-size: 1.1rem;
+}
+
+.editorialCta:hover .editorialCtaLine,
+.editorialCta:focus-visible .editorialCtaLine {
+  transform: scaleX(1.15);
+  background-color: var(--edison, #e5dec9);
+}
+
+.editorialCta:hover .editorialCtaArrow,
+.editorialCta:focus-visible .editorialCtaArrow {
+  transform: translateX(8px);
+  color: var(--edison, #e5dec9);
+}
+
+.editorialCta:focus-visible {
+  outline: 1px dashed var(--edison, #e5dec9);
+  outline-offset: 8px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .chapterLabel {
+    font-size: 0.62rem;
+    letter-spacing: 0.26em;
+    margin-bottom: 14px;
+  }
+
+  .heroSection {
+    min-height: 84vh;
+    padding-top: clamp(100px, 14vh, 130px);
+    padding-bottom: clamp(40px, 8vh, 60px);
+  }
+
+  .heroSection .container {
+    padding: 0 20px;
+  }
+
+  .heroTitle {
+    font-size: clamp(2.6rem, 10vw, 4.4rem);
+    line-height: 0.96;
+    letter-spacing: 0;
+  }
+
+  .heroSubtitle {
+    font-size: 1.05rem;
+    line-height: 1.45;
+    margin-top: 18px;
+    padding-left: 14px;
+    max-width: 100%;
+  }
+
+  .heroMetaRow {
+    gap: 16px 24px;
+    margin-top: 26px;
+    padding-top: 20px;
+  }
+
+  .introSection {
+    padding: clamp(60px, 10vh, 90px) 0;
+  }
+
+  .introLockup {
+    padding: 0 10px;
+  }
+
+  .introQuoteMark {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+  }
+
+  .introLines {
+    gap: 16px;
+    padding: 0;
+  }
+
+  .introLine {
+    font-size: clamp(1.2rem, 4.5vw, 1.7rem);
+    line-height: 1.42;
+    padding: 4px 0;
+  }
+
+  .chapterTransitionSection {
+    padding: clamp(60px, 10vh, 90px) 0;
+  }
+
+  .giantWordWatermark {
+    font-size: clamp(2.6rem, 11vw, 4.8rem);
+  }
+
+  .chapterNumeralLockup {
+    width: clamp(130px, 36vw, 190px);
+    margin-bottom: 12px;
+  }
+
+  .chapterBreakLead {
+    font-size: clamp(1.15rem, 4vw, 1.45rem);
+    padding: 0 12px;
+  }
+
+  .chapterSection,
+  .chapterSectionAlt {
+    padding: clamp(60px, 10vh, 90px) 0;
+  }
+
+  .editorialSplitGrid {
+    gap: 36px;
+  }
+
+  .sectionTitle {
+    font-size: clamp(2rem, 7.5vw, 3.2rem);
+  }
+
+  .sectionRule {
+    margin-top: 14px;
+    margin-bottom: 20px;
+  }
+
+  .milestoneRow {
+    grid-template-columns: 60px 1fr;
+    gap: 14px;
+    padding: 14px 0;
+  }
+
+  .quoteCard {
+    padding-left: 14px;
+    margin: 18px 0;
+  }
+
+  .chefQuoteText {
+    font-size: 1.15rem;
+  }
+
+  .cuisineTriptych {
+    gap: 28px;
+    padding-top: 24px;
+    margin-bottom: 40px;
+  }
+
+  .philosophyManifestoBlock {
+    margin: 20px 0 24px;
+    gap: 18px;
+  }
+
+  .manifestoQuoteWrap {
+    padding-left: 16px;
+  }
+
+  .spatialProtocolRow {
+    gap: 14px;
+    padding: 14px 0;
+  }
+
+  .protocolNum {
+    font-size: 1.8rem;
+  }
+
+  .protocolStatement {
+    font-size: 0.72rem;
+  }
+
+  .materialsMonograph {
+    gap: 28px;
+    padding: 24px 0;
+  }
+
+  .soireeContinueSection {
+    min-height: auto;
+    padding: clamp(70px, 12vh, 100px) 0;
+  }
+
+  .soireeTitle {
+    font-size: clamp(2.3rem, 8.8vw, 3.8rem);
+    line-height: 0.96;
+  }
+
+  .soireeLead {
+    font-size: 1.05rem;
+    margin-top: 14px;
+  }
+
+  .editorialCta {
+    margin-top: 28px;
+    min-height: 44px;
+  }
+}
+
+/* ==========================================================================
+   SMOOTH EDITORIAL SCROLL REVEALS (Identical to Homepage System)
+   ========================================================================== */
+
+:global(html.js) :global(.rv) {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(26px);
+  transition: opacity 1.2s cubic-bezier(0.16, 0.84, 0.28, 1),
+              transform 1.2s cubic-bezier(0.16, 0.84, 0.28, 1),
+              filter 1.2s cubic-bezier(0.16, 0.84, 0.28, 1);
+  will-change: opacity, transform, filter;
+}
+
+:global(html.js) :global(.rv.on) {
+  opacity: 1;
+  filter: blur(0px);
+  transform: none;
+}
+
+:global(html.js) :global(.rv2) {
+  transition-delay: 0.15s;
+}
+
+:global(html.js) :global(.rv3) {
+  transition-delay: 0.3s;
+}
+
+:global(html.js) :global(.rv4) {
+  transition-delay: 0.45s;
+}
+
+:global(html.js) .imageFrame:global(.rv) {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(28px) scale(0.985);
+  transition: opacity 1.3s cubic-bezier(0.16, 0.84, 0.28, 1),
+              transform 1.3s cubic-bezier(0.16, 0.84, 0.28, 1),
+              filter 1.3s cubic-bezier(0.16, 0.84, 0.28, 1);
+  will-change: opacity, transform, filter;
+}
+
+:global(html.js) .imageFrame:global(.rv.on) {
+  opacity: 1;
+  filter: blur(0px);
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroTitle,
+  .heroBackdropImage,
+  .soireeBgImg,
+  .editorialCtaLine,
+  .editorialCtaArrow,
+  .framedImage {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
