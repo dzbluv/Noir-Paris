@@ -12,7 +12,6 @@ import { PageWrapper } from './components/layout/PageWrapper';
 import { CurtainTransitionProvider } from './components/layout/CurtainTransition';
 import { HomePage } from './pages/Home';
 import { MenuPage } from './pages/Menu';
-import { WinePage } from './pages/Wine';
 import { AboutPage } from './pages/About';
 import { ReservationPage } from './pages/Reservation';
 import { ReservationModal } from './components/ReservationModal';
@@ -87,10 +86,9 @@ export default function App() {
                 <Route path="/menus" element={<MenuPage onOpenReservation={openReservation} />} />
                 <Route path="/menu" element={<Navigate to="/menus" replace />} />
                 <Route path="/carte" element={<Navigate to="/menus" replace />} />
-                <Route path="/wine" element={<WinePage onOpenReservation={openReservation} />} />
-                <Route path="/drinks" element={<Navigate to="/wine" replace />} />
                 <Route path="/bench" element={<Navigate to="/#bench" replace />} />
                 <Route path="/about" element={<AboutPage onOpenReservation={openReservation} />} />
+                <Route path="/a-propos" element={<Navigate to="/about" replace />} />
                 <Route path="/reservation" element={<ReservationPage />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
